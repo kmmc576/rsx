@@ -1,0 +1,26 @@
+#! /bin/bash
+#PBS -N MDO_tetra_htseq_all_strd_rev
+#PBS -l select=1:ncpus=8:mem=25gb
+#PBS -l walltime=3:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+ 
+ ##NB stranded is"reverse" for illumina RNA seq data
+ ##2 Apr2021 added Rsx to GFF file manually (based on best guess: 99% alignments from ncbi BLASTn).Added _r suffix to distinguish old files 
+ 
+cd /srv/scratch/z3097574/MDO_tetra_htseq
+module load python/2.7.15
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_U6M2.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_U6M2_strdrev_r.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Syncrip-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Syncrip_strdrev_r.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Nono-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Nono_strdrev_r.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Hnrnpk-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Hnrnpk_strdrev_r.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Ckap4-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Ckap4_strdrev_r.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Caprin1-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1_rsx.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Caprin1_strdrev_r.txt
+

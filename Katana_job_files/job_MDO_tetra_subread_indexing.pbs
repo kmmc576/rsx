@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#PBS -N MDO_subread_index_genome
+#PBS -l select=1:ncpus=8:mem=20gb
+#PBS -l walltime=10:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+
+cd /srv/scratch/waters/Genomes/MDO
+## OR can just physically locate in the file
+module load subread/2.0.1
+##or can loadprogram and run on own computer
+
+##-o option specifies output name
+##if running in different folder,need to specify full path
+
+subread-buildindex -o MDO_index Monodelphis_domestica.ASM229v1.dna.toplevel.fa

@@ -1,0 +1,67 @@
+#! /bin/bash
+#PBS -N MDO_tetra_convert_samtobam
+#PBS -l select=1:ncpus=8:mem=60gb
+#PBS -l walltime=6:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+ 
+cd /srv/scratch/z3097574/MDO_tetra_converted_sorted
+module load samtools/1.10
+
+##convert sam file to bam files.-b specifies bam output; -S specifies sam input (but is ignored (redundant) for samtools version 1.11)-u specifies output uncompressed bam
+##just convert .sam alignment files for now - ignore .indel.vcf files for now
+## -o <file> specifies output location
+##merge for samtools 1.10 <merged filename> <input file names>
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.bam
+
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.bam
+
+
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_U6M2_S6_L001_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L001_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_U6M2_S6_L002_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L002_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_U6M2_S6_L003_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L003_R1_001.bam
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_alignment/subread_MDO_tetra_align_U6M2_S6_L004_R1_001.sam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L004_R1_001.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.sorted.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.sorted.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L004_R1_001.sorted.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L004_R1_001.sorted.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L004_R1_001.sorted.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L001_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L001_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L002_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L002_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L003_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L003_R1_001.sorted.bam
+samtools sort /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L004_R1_001.bam > /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L004_R1_001.sorted.bam
+
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Caprin1-kd.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.sorted.bam
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Ckap4-kd.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.sorted.bam
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Hnrnpk-kd.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Hnrnpk-kd_S1_L004_R1_001.sorted.bam
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Nono-kd.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Nono-kd_S5_L004_R1_001.sorted.bam
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Syncrip-kd.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_Syncrip-kd_S3_L004_R1_001.sorted.bam
+samtools merge /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_U6M2.combined.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L001_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L002_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L003_R1_001.sorted.bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/subread_MDO_tetra_align_U6M2_S6_L004_R1_001.sorted.bam

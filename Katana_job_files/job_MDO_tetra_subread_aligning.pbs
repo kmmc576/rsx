@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#PBS -N MDO_subread_align_genome
+#PBS -l select=1:ncpus=8:mem=40gb
+#PBS -l walltime=10:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+
+cd /srv/scratch/z3097574/MDO_tetra_alignment
+
+module load subread/2.0.1
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Hnrnpk-kd_S1_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Hnrnpk-kd_S1_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Hnrnpk-kd_S1_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Hnrnpk-kd_S1_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Hnrnpk-kd_S1_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Hnrnpk-kd_S1_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Hnrnpk-kd_S1_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Hnrnpk-kd_S1_L004_R1_001.sam
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Ckap4-kd_S2_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Ckap4-kd_S2_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Ckap4-kd_S2_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Ckap4-kd_S2_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Ckap4-kd_S2_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Ckap4-kd_S2_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Ckap4-kd_S2_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Ckap4-kd_S2_L004_R1_001.sam
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Syncrip-kd_S3_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Syncrip-kd_S3_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Syncrip-kd_S3_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Syncrip-kd_S3_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Syncrip-kd_S3_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Syncrip-kd_S3_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Syncrip-kd_S3_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Syncrip-kd_S3_L004_R1_001.sam
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Caprin1-kd_S4_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Caprin1-kd_S4_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Caprin1-kd_S4_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Caprin1-kd_S4_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Caprin1-kd_S4_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Caprin1-kd_S4_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Caprin1-kd_S4_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Caprin1-kd_S4_L004_R1_001.sam
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Nono-kd_S5_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Nono-kd_S5_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Nono-kd_S5_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Nono-kd_S5_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Nono-kd_S5_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Nono-kd_S5_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/Nono-kd_S5_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_Nono-kd_S5_L004_R1_001.sam
+
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/U6M2_S6_L001_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_U6M2_S6_L001_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/U6M2_S6_L002_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_U6M2_S6_L002_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/U6M2_S6_L003_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_U6M2_S6_L003_R1_001.sam
+subread-align -t 0 -i /srv/scratch/waters/Genomes/MDO/MDO_index -r  /home/z3097574/files/trimmomatic_MDO_tetra_output/U6M2_S6_L004_R1_001.trimmed.fastq.gz -o subread_MDO_tetra_align_U6M2_S6_L004_R1_001.sam

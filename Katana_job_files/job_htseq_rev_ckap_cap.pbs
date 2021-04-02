@@ -1,0 +1,15 @@
+#! /bin/bash
+#PBS -N MDO_tetra_htseq_all_strd_rev
+#PBS -l select=1:ncpus=8:mem=25gb
+#PBS -l walltime=3:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+ 
+cd /srv/scratch/z3097574/MDO_tetra_htseq
+module load python/2.7.15
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Ckap4-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Ckap4_strdrev.txt
+
+htseq-count -m union -s reverse -f bam /srv/scratch/z3097574/MDO_tetra_converted_sorted/MDO_tetra_align_Caprin1-kd.combined.bam /srv/scratch/waters/Genomes/MDO/Monodelphis_domestica.ASM229v1.103 > /srv/scratch/z3097574/MDO_tetra_htseq/MDO_tetra_hiseq_Caprin1_strdrev.txt
+

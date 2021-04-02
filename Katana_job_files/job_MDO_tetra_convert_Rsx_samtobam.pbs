@@ -1,0 +1,22 @@
+#! /bin/bash
+#PBS -N MDO_tetra_convert_Rsx_samtobam
+#PBS -l select=1:ncpus=8:mem=30gb
+#PBS -l walltime=3:00:00
+#PBS -j oe
+#PBS -M z3097574@ad.unsw.edu.au
+#PBS -m ae
+ 
+cd /srv/scratch/z3097574/MDO_tetra_Rsx
+module load samtools/1.10
+
+##convert sam file to bam files.-b specifies bam output; -S specifies sam input (but is ignored (redundant) for samtools version 1.11)-u specifies output uncompressed bam
+##just convert .sam alignment files for now - ignore .indel.vcf files for now
+## -o <file> specifies output location
+
+
+samtools view -S -b /srv/scratch/z3097574/MDO_tetra_Rsx/Rsx_alignment_ed.sam > /srv/scratch/z3097574/MDO_tetra_Rsx/Rsx_alignment.bam
+
+samtools sort /srv/scratch/z3097574/MDO_tetra_Rsx/Rsx_alignment.bam -o /srv/scratch/z3097574/MDO_tetra_Rsx/Rsx_alignment.sorted.bam
+
+samtools index /srv/scratch/z3097574/MDO_tetra_Rsx/Rsx_alignment.sorted.bam
+
